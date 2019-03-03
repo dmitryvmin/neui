@@ -1,28 +1,39 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import './App.scss';
+import styled from 'styled-components';
+
+import Text from './components/atoms/Text/index';
+
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+
+    render() {
+        return (
+            <div className="App">
+
+                <StyledComponent>
+                    Styled Component
+                </StyledComponent>
+
+                <Text type="heading">
+                    This is a heading
+                </Text>
+                <Text type="paragraph">
+                    This is a paragraph
+                </Text>
+                <Text type="subtitle">
+                    This is a subtitle
+                </Text>
+
+            </div>
+        );
+    }
 }
+
+const StyledComponent = styled.p`
+  font-size: 2em;
+  color: salmon;
+  margin: 0;
+`;
 
 export default App;

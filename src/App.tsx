@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './App.scss';
-import styled from 'styled-components';
 
-import Text from './components/atoms/Text/index';
-
+import Text from './components/atoms/Text';
+import Backdrop from './components/atoms/Backdrop';
+import Overlay from './components/atoms/Overlay';
 
 class App extends Component {
 
@@ -11,9 +11,14 @@ class App extends Component {
         return (
             <div className="App">
 
-                <StyledComponent>
-                    Styled Component
-                </StyledComponent>
+                <Overlay.Container>
+                    {(overlay: any) => (
+                        <div>
+                            <Backdrop {...overlay} />
+                            <Overlay {...overlay}>Overlay</Overlay>
+                        </div>
+                    )}
+                </Overlay.Container>
 
                 <Text type="heading">
                     This is a heading
@@ -29,11 +34,5 @@ class App extends Component {
         );
     }
 }
-
-const StyledComponent = styled.p`
-  font-size: 2em;
-  color: salmon;
-  margin: 0;
-`;
 
 export default App;
